@@ -147,7 +147,16 @@ const CONTENT = {
   .hero-art {
     position: absolute;
     inset: 0;
-    background: url("assets/bg.png") right 55% / auto 92% no-repeat;
+  }
+  .hero-art img {
+    position: absolute;
+    top: 55%;
+    right: 0;
+    height: 92%;
+    width: auto;
+    /* bg.png's right ~14.5% is near-transparent haze; push it past the screen
+       edge so the visible art hugs the right edge at every viewport width */
+    transform: translate(14.5%, -55%);
   }
   .hero-art::after {
     content: "";
@@ -348,7 +357,7 @@ const CONTENT = {
 </header>
 
 <section class="hero" id="work">
-  <div class="hero-art" aria-hidden="true"></div>
+  <div class="hero-art" aria-hidden="true"><img src="assets/bg.png" alt=""></div>
   <div class="wrap">
     <div class="hero-content">
       <h1><img class="hero-title" id="hero-title" src="" alt=""></h1>
