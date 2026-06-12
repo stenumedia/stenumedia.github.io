@@ -151,11 +151,14 @@ const CONTENT = {
   .hero-art img {
     position: absolute;
     top: 55%;
-    right: 0;
+    /* anchor the art to the content column's right edge (like the title on the
+       left): inset on wide screens, flush with the screen edge once the
+       viewport is narrower than the 1140px wrap */
+    right: max(0px, calc((100vw - 1140px) / 2));
     height: 92%;
     width: auto;
-    /* bg.png's right ~14.5% is near-transparent haze; push it past the screen
-       edge so the visible art hugs the right edge at every viewport width */
+    /* bg.png's right ~14.5% is near-transparent haze; shift by that much so
+       the visible ink lands on the anchor and only the haze bleeds past it */
     transform: translate(14.5%, -55%);
   }
   .hero-art::after {
