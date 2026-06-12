@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+const CONTENT = {
+  siteTitle: "Stenumedia — Aim for the Bushes",
+  logo: "Stenumedia",
+
+  nav: [
+    { label: "ABOUT",     href: "#about" }
+  ],
+  navButton: { label: "CONTACT", href: "#contact" },
+
+  hero: {
+    titleImage: "assets/title.png",
+    titleAlt: "AIM FOR THE BUSHES",
+    tagline: "Bold ideas. Brutal focus.\nReal results.",
+    description: "Stenumedia is a studio for games, tech and consumer products. We generally solve more problems than cause."
+  },
+
+  cards: [
+    { icon: "gamepad",  title: "GAMES",     text: "Design. Develop. Deliver." },
+    { icon: "chip",     title: "TECH",      text: "Systems. Platforms. Performance." },
+    { icon: "gear",     title: "CONSUMER",  text: "Products. Experiences. Growth." },
+    { icon: "branches", title: "SOLUTIONS", text: "Complex problems. Sometimes solutions." }
+  ],
+
+  about: {
+    heading: "WE AIM HIGH.\nWE LAND HARD.\nTHERE IS NO WE.",
+    text: "Feels like a real company with real results."
+  },
+
+  contact: {
+    heading: "GET IN TOUCH",
+    rows: [
+      { icon: "mail",  text: "chairman@stenumedia.com",  href: "mailto:chairman@stenumedia.com" },
+      { icon: "pin",   text: "Finland",     href: null }
+    ]
+  },
+
+  footer: {
+    logo: "Stenumedia",
+    copyright: "© 2026 Stenumedia Oy. All rights reserved.",
+    social: [
+    ]
+  }
+};
+</script>
+<!-- ================== END OF TEXT CONTENT ================== -->
+
+<title>Stenumedia — Aim for the Bushes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #16120f;
+    --bg-card: #1b1713;
+    --orange: #ec7320;
+    --orange-soft: rgba(236, 115, 32, 0.45);
+    --white: #f3efe9;
+    --gray: #b3aa9e;
+    --gray-dim: #8c8478;
+    --line: rgba(243, 239, 233, 0.14);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--white);
+    font-family: "Inter", -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* chalky texture over the whole page */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 5;
+    opacity: 0.35;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' seed='4'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.9 0 0 0 0 0.85 0 0 0 0 0.78 0 0 0 0.06 0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .wrap {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ---------- header ---------- */
+  header {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    z-index: 10;
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 34px;
+  }
+  .logo {
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 1.35rem;
+    letter-spacing: 0.01em;
+    color: var(--white);
+    text-decoration: none;
+  }
+  nav { display: flex; align-items: center; gap: 38px; }
+  nav a {
+    font-family: "Oswald", sans-serif;
+    font-weight: 500;
+    font-size: 0.82rem;
+    letter-spacing: 0.16em;
+    color: var(--white);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  nav a:hover { color: var(--orange); }
+  nav a.nav-btn {
+    border: 1px solid var(--orange);
+    padding: 10px 22px;
+    color: var(--white);
+  }
+  nav a.nav-btn:hover { background: var(--orange); color: #16120f; }
+
+  /* ---------- hero ---------- */
+  .hero {
+    position: relative;
+    min-height: 92vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+  .hero .wrap { width: 100%; }
+  .hero-art {
+    position: absolute;
+    inset: 0;
+    background: url("assets/bg.png") right 55% / auto 92% no-repeat;
+  }
+  .hero-art::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(90deg, rgba(22,18,15,0.85) 0%, rgba(22,18,15,0.35) 40%, rgba(22,18,15,0) 65%),
+      linear-gradient(0deg, var(--bg) 0%, rgba(22,18,15,0) 18%);
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding-top: 110px;
+    max-width: 560px;
+  }
+  .hero h1 {
+    margin-bottom: 26px;
+    line-height: 0;
+  }
+  .hero-title {
+    width: clamp(160px, 32vw, 220px);
+    height: auto;
+    filter: drop-shadow(3px 5px 6px rgba(0,0,0,0.55));
+    /* title.png has ~3.5% transparent padding on its left; pull it back so the ink lines up */
+    transform: translateX(-3.5%);
+  }
+  .hero .tagline {
+    font-family: "Oswald", sans-serif;
+    font-weight: 600;
+    font-size: 1.25rem;
+    letter-spacing: 0.04em;
+    white-space: pre-line;
+    margin-bottom: 18px;
+  }
+  .hero .desc {
+    color: var(--gray);
+    font-size: 0.95rem;
+    line-height: 1.65;
+    max-width: 330px;
+    margin-bottom: 34px;
+  }
+  .btn-outline {
+    display: inline-block;
+    font-family: "Oswald", sans-serif;
+    font-weight: 500;
+    font-size: 0.82rem;
+    letter-spacing: 0.18em;
+    color: var(--orange);
+    text-decoration: none;
+    border: 1px solid var(--orange);
+    padding: 15px 32px;
+    transition: background 0.2s, color 0.2s;
+  }
+  .btn-outline:hover { background: var(--orange); color: #16120f; }
+
+  /* ---------- expertise cards ---------- */
+  .expertise { padding: 90px 0 40px; }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+  }
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--orange-soft);
+    padding: 38px 22px 32px;
+    text-align: center;
+  }
+  .card svg {
+    width: 38px;
+    height: 38px;
+    stroke: var(--orange);
+    fill: none;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    margin-bottom: 22px;
+  }
+  .card h3 {
+    font-family: "Oswald", sans-serif;
+    font-weight: 600;
+    font-size: 1.02rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 12px;
+  }
+  .card p {
+    color: var(--gray-dim);
+    font-size: 0.84rem;
+    line-height: 1.6;
+  }
+
+  /* ---------- about / contact ---------- */
+  .about-contact { padding: 80px 0 90px; }
+  .ac-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 70px;
+    align-items: start;
+  }
+  .about h2 {
+    font-family: "Oswald", sans-serif;
+    font-weight: 700;
+    font-size: clamp(2rem, 4vw, 2.9rem);
+    letter-spacing: 0.06em;
+    line-height: 1.18;
+    white-space: pre-line;
+    margin-bottom: 26px;
+  }
+  .about p {
+    color: var(--gray);
+    font-size: 0.98rem;
+    line-height: 1.7;
+    max-width: 380px;
+  }
+  .contact h3 {
+    font-family: "Oswald", sans-serif;
+    font-weight: 600;
+    font-size: 1.05rem;
+    letter-spacing: 0.14em;
+    color: var(--orange);
+    margin: 8px 0 30px;
+  }
+  .contact-row {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 24px;
+    color: var(--white);
+    font-size: 0.95rem;
+    text-decoration: none;
+  }
+  a.contact-row:hover { color: var(--orange); }
+  .contact-row svg {
+    width: 22px;
+    height: 22px;
+    stroke: var(--orange);
+    fill: none;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex-shrink: 0;
+  }
+
+  /* ---------- footer ---------- */
+  footer { border-top: 1px solid var(--line); }
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 34px 0;
+  }
+  .footer-logo {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--white);
+    text-decoration: none;
+  }
+  .footer-copy {
+    color: var(--gray-dim);
+    font-size: 0.8rem;
+  }
+  .footer-social { display: flex; gap: 20px; }
+  .footer-social a { display: inline-flex; }
+  .footer-social svg {
+    width: 19px;
+    height: 19px;
+    stroke: var(--gray);
+    fill: none;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke 0.2s;
+  }
+  .footer-social a:hover svg { stroke: var(--orange); }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 900px) {
+    .cards { grid-template-columns: repeat(2, 1fr); }
+    .ac-grid { grid-template-columns: 1fr; gap: 50px; }
+  }
+  @media (max-width: 600px) {
+    nav { gap: 20px; }
+    nav a:not(.nav-btn) { display: none; }
+    .cards { grid-template-columns: 1fr; }
+    .footer-inner { flex-direction: column; }
+  }
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="wrap header-inner">
+    <a class="logo" href="#work" id="logo"></a>
+    <nav id="nav"></nav>
+  </div>
+</header>
+
+<section class="hero" id="work">
+  <div class="hero-art" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="hero-content">
+      <h1><img class="hero-title" id="hero-title" src="" alt=""></h1>
+      <p class="tagline" id="hero-tagline"></p>
+      <p class="desc" id="hero-desc"></p>
+    </div>
+  </div>
+</section>
+
+<section class="expertise" id="expertise">
+  <div class="wrap">
+    <div class="cards" id="cards"></div>
+  </div>
+</section>
+
+<section class="about-contact" id="about">
+  <div class="wrap ac-grid">
+    <div class="about">
+      <h2 id="about-heading"></h2>
+      <p id="about-text"></p>
+    </div>
+    <div class="contact" id="contact">
+      <h3 id="contact-heading"></h3>
+      <div id="contact-rows"></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-inner">
+    <a class="footer-logo" href="#work" id="footer-logo"></a>
+    <span class="footer-copy" id="footer-copy"></span>
+    <div class="footer-social" id="footer-social"></div>
+  </div>
+</footer>
+
+<script>
+/* ---------- icon library (inline SVG paths, 24x24 viewBox) ---------- */
+const ICONS = {
+  gamepad: '<path d="M6.5 8h11a4.5 4.5 0 0 1 4.4 5.4l-.8 4a2.6 2.6 0 0 1-4.5 1.2L14.8 16H9.2l-1.8 2.6a2.6 2.6 0 0 1-4.5-1.2l-.8-4A4.5 4.5 0 0 1 6.5 8Z"/><path d="M8 11v3M6.5 12.5h3"/><circle cx="15.5" cy="11.5" r="0.4"/><circle cx="17.8" cy="13.2" r="0.4"/>',
+  chip: '<rect x="7" y="7" width="10" height="10"/><rect x="10" y="10" width="4" height="4"/><path d="M9 7V4M12 7V4M15 7V4M9 20v-3M12 20v-3M15 20v-3M7 9H4M7 12H4M7 15H4M20 9h-3M20 12h-3M20 15h-3"/>',
+  gear: '<circle cx="12" cy="12" r="3.2"/><path d="M12 5.5V3.5M12 20.5v-2M18.5 12h2M3.5 12h2M16.6 7.4l1.4-1.4M6 18l1.4-1.4M16.6 16.6 18 18M6 6l1.4 1.4"/><circle cx="12" cy="12" r="6.6"/>',
+  branches: '<path d="M12 21V11M12 11 7 6M12 11l5-5M7 6 4.5 8M7 6 6 3M17 6l2.5 2M17 6l1-3M12 15l-3.5-2M12 17l3.5-2"/>',
+  mail: '<rect x="3.5" y="5.5" width="17" height="13" rx="1"/><path d="m4 7 8 6 8-6"/>',
+  phone: '<path d="M7.5 3.5h3l1.5 4.5-2 1.5a12 12 0 0 0 4.5 4.5l1.5-2 4.5 1.5v3a2 2 0 0 1-2 2A16.5 16.5 0 0 1 5.5 5.5a2 2 0 0 1 2-2Z"/>',
+  pin: '<path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11Z"/><circle cx="12" cy="10" r="2.6"/>',
+  twitter: '<path d="M21 6.5c-.7.3-1.4.5-2.2.6A3.7 3.7 0 0 0 20.4 5c-.7.4-1.5.7-2.4.9a3.8 3.8 0 0 0-6.5 3.4A10.8 10.8 0 0 1 3.7 5.4a3.8 3.8 0 0 0 1.2 5 3.7 3.7 0 0 1-1.7-.4 3.8 3.8 0 0 0 3 3.7c-.5.2-1.1.2-1.7.1a3.8 3.8 0 0 0 3.5 2.6A7.7 7.7 0 0 1 2.5 18a10.8 10.8 0 0 0 16.6-9.6c.7-.6 1.4-1.2 1.9-1.9Z"/>',
+  linkedin: '<rect x="3.5" y="3.5" width="17" height="17" rx="2"/><path d="M8 10.5V17M8 7.5v.1M12 17v-3.8a2 2 0 0 1 4 0V17M12 10.5V17"/>',
+  instagram: '<rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17" cy="7" r="0.5"/>'
+};
+const icon = (name, cls) =>
+  `<svg viewBox="0 0 24 24" aria-hidden="true">${ICONS[name] || ""}</svg>`;
+
+/* ---------- render CONTENT into the page ---------- */
+document.addEventListener("DOMContentLoaded", () => {
+  const $ = (id) => document.getElementById(id);
+  document.title = CONTENT.siteTitle;
+
+  $("logo").textContent = CONTENT.logo;
+  $("nav").innerHTML =
+    CONTENT.nav.map(n => `<a href="${n.href}">${n.label}</a>`).join("") +
+    `<a class="nav-btn" href="${CONTENT.navButton.href}">${CONTENT.navButton.label}</a>`;
+
+  $("hero-title").src = CONTENT.hero.titleImage;
+  $("hero-title").alt = CONTENT.hero.titleAlt;
+  $("hero-tagline").textContent = CONTENT.hero.tagline;
+  $("hero-desc").textContent = CONTENT.hero.description;
+
+  $("cards").innerHTML = CONTENT.cards.map(c => `
+    <div class="card">
+      ${icon(c.icon)}
+      <h3>${c.title}</h3>
+      <p>${c.text}</p>
+    </div>`).join("");
+
+  $("about-heading").textContent = CONTENT.about.heading;
+  $("about-text").textContent = CONTENT.about.text;
+
+  $("contact-heading").textContent = CONTENT.contact.heading;
+  $("contact-rows").innerHTML = CONTENT.contact.rows.map(r => {
+    const inner = `${icon(r.icon)}<span>${r.text}</span>`;
+    return r.href
+      ? `<a class="contact-row" href="${r.href}">${inner}</a>`
+      : `<div class="contact-row">${inner}</div>`;
+  }).join("");
+
+  $("footer-logo").textContent = CONTENT.footer.logo;
+  $("footer-copy").textContent = CONTENT.footer.copyright;
+  $("footer-social").innerHTML = CONTENT.footer.social.map(s =>
+    `<a href="${s.href}" aria-label="${s.label}">${icon(s.icon)}</a>`).join("");
+});
+</script>
+
+</body>
+</html>
