@@ -1,45 +1,69 @@
 # Website — context / status
 
-Last updated: 2026-06-13. The "read me first" handoff doc for the Stenumedia site. Shared machine
-setup and working rules are in `Projects/ENVIRONMENT.md` and `Projects/CONVENTIONS.md`.
+Last updated: 2026-09-24. Handoff notes for the Stenumedia marketing site.
 
 ## What this is
 
 The public Stenumedia marketing site — a single static page ("Aim for the Bushes"). Plain
-HTML/CSS/JS, no build step, no framework. Hosted on **GitHub Pages** at **stenumedia.com**.
+HTML/CSS/JS, no build step and no framework. Hosted on **GitHub Pages** at **stenumedia.com**.
 
-## Repo & branches
+## Repo & deploy
 
-- GitHub: `stenumedia/stenumedia.github.io`, checked out at `/Users/asten/Projects/Website`.
-- Branch: `main` — this is a user/org Pages repo, so **pushing `main` publishes the live site**. Be deliberate.
-- Custom domain pinned by `CNAME` (`stenumedia.com`); don't delete it or Pages drops the domain.
+- GitHub: `stenumedia/stenumedia.github.io`
+- Branch: `main` — pushing `main` publishes the live site.
+- `CNAME` contains the custom domain. Keep this file intact.
 
-## Current state
+## Main files
 
-Live, single page. Sections: hero (`#work`), expertise (`#expertise`), about/contact (`#about`).
+- `index.html` — page layout, CSS, editable text in the `CONTENT` object near the top, and the renderer.
+- `projects.js` — simple project data file. Add/edit projects here; no HTML changes are needed.
+- `assets/projects/` — put project images here.
+- `assets/stenumedia-logo.svg` — primary logo used in the header, contact section and footer.
+- `assets/stenumedia-logo.png` — PNG copy of the logo.
+- `assets/title.png` and `assets/bg.png` — original "Aim for the Bushes" title and hero artwork.
+- `CNAME` — custom domain for GitHub Pages.
 
-## Architecture / where things live
+## Adding a project
 
-- `index.html` — the whole page: an editable **`CONTENT` object near the top** (title, nav, hero,
-  copy) is rendered into the markup by a small inline script at the bottom (`render CONTENT into the
-  page`). Edit copy in `CONTENT`; edit layout in the markup/CSS below it.
-- `assets/`, plus `bg.png` and `title.png` — hero/background art (large PNGs).
-- `CNAME` — custom domain.
+1. Put the image in `assets/projects/`.
+2. Open `projects.js`.
+3. Add one object inside the `PROJECTS` array:
 
-## Build / run / test
+```js
+{
+  image: "assets/projects/my-project.jpg",
+  title: "My Project",
+  text: "A short description of the project.",
+  category: "games",
+  bgColor: "#f57e2e"
+},
+```
 
-No build. Preview locally by opening `index.html`, or `python3 -m http.server` in the folder.
+`category` must be one of:
 
-## Deploy / ship
+- `games`
+- `tech`
+- `consumer`
+- `solutions`
 
-Push to `main` → GitHub Pages publishes to stenumedia.com within a minute. No pipeline.
+Projects are automatically grouped underneath the matching business-area card. The text colour is
+chosen automatically for readable contrast against the supplied `bgColor`.
 
-## Conventions & gotchas
+## Editing ordinary site copy
 
-- `main` == production; there's no staging. Preview locally before pushing.
-- Keep the `CNAME` file intact.
-- Big PNGs are committed directly — keep new art reasonably sized.
+The `CONTENT` object is near the top of `index.html`. It contains the hero copy, navigation,
+business-area labels, about copy, contact information and footer copy.
 
-## Open items / next
+## Preview
 
-- _(none tracked yet)_
+No build step is required. Either open `index.html` directly or run:
+
+```bash
+python3 -m http.server 8000
+```
+
+Then open `http://localhost:8000`.
+
+## Deploy
+
+Preview locally first, then push to `main`. GitHub Pages should update shortly afterwards.

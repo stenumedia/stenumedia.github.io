@@ -3,299 +3,562 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0f1c30">
 
 <script>
 const CONTENT = {
   siteTitle: "Stenumedia — Aim for the Bushes",
-  logo: "Stenumedia",
+  logo: "STENUMEDIA",
 
   nav: [
-    { label: "ABOUT",     href: "#about" }
+    { label: "FOCUS", href: "#expertise" },
+    { label: "ABOUT", href: "#about" }
   ],
   navButton: { label: "CONTACT", href: "#contact" },
 
   hero: {
     titleImage: "assets/title.png",
     titleAlt: "AIM FOR THE BUSHES",
-    tagline: "Bold ideas. Brutal focus.\nReal results.",
+    tagline: "I'm thinking what you're thinking.",
     description: "Stenumedia is a studio for games, tech and consumer products. We generally solve more problems than cause."
   },
 
   cards: [
-    { icon: "gamepad",  title: "GAMES",     text: "Design. Develop. Deliver." },
-    { icon: "chip",     title: "TECH",      text: "Systems. Platforms. Performance." },
-    { icon: "gear",     title: "CONSUMER",  text: "Products. Experiences. Growth." },
-    { icon: "branches", title: "SOLUTIONS", text: "Complex problems. Sometimes solutions." }
+    { key: "games",     icon: "gamepad",  title: "GAMES",     text: "Design. Develop. Deliver.",                 accent: "#f57e2e" },
+    { key: "tech",      icon: "chip",     title: "TECH",      text: "Systems. Platforms. Performance.",           accent: "#5eb8a7" },
+    { key: "consumer",  icon: "gear",     title: "CONSUMER",  text: "Products. Experiences. Growth.",             accent: "#136b9d" },
+    { key: "solutions", icon: "branches", title: "SOLUTIONS", text: "Complex problems. Sometimes solutions.",      accent: "#338b8d" }
   ],
 
   about: {
-    heading: "WE AIM HIGH.\nWE LAND HARD.\nTHERE IS NO WE.",
-    text: "Feels like a real company with real results."
+    heading: "WE AIM HIGH.\nWE LAND HARD.\nTHERE IS NO WE."
   },
 
   contact: {
     heading: "GET IN TOUCH",
     rows: [
-      { icon: "mail",  text: "chairman@stenumedia.com",  href: "mailto:chairman@stenumedia.com" },
-      { icon: "pin",   text: "Finland",     href: null }
+      { icon: "mail", text: "chairman@stenumedia.com", href: "mailto:chairman@stenumedia.com" },
+      { icon: "pin",  text: "Finland", href: null }
     ]
   },
 
   footer: {
-    logo: "Stenumedia",
     copyright: "© 2026 Stenumedia Oy. All rights reserved.",
-    social: [
-    ]
+    social: []
   }
 };
 </script>
-<!-- ================== END OF TEXT CONTENT ================== -->
 
 <title>Stenumedia — Aim for the Bushes</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/stenumedia-logo.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 
 <style>
   :root {
-    --bg: #16120f;
-    --bg-card: #1b1713;
-    --orange: #ec7320;
-    --orange-soft: rgba(236, 115, 32, 0.45);
-    --white: #f3efe9;
-    --gray: #b3aa9e;
-    --gray-dim: #8c8478;
-    --line: rgba(243, 239, 233, 0.14);
+    --bg: #0f1c30;
+    --bg-deep: #0a1424;
+    --surface: #15253d;
+    --surface-2: #1a2d49;
+    --orange: #f57e2e;
+    --teal: #5eb8a7;
+    --teal-deep: #338b8d;
+    --blue: #136b9d;
+    --navy: #1d376f;
+    --white: #f5f2ed;
+    --gray: #b4c0cf;
+    --gray-dim: #8595ab;
+    --line: rgba(245, 242, 237, 0.13);
+    --line-strong: rgba(245, 242, 237, 0.22);
+    --wrap: 1180px;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
-
   body {
+    min-width: 320px;
     background: var(--bg);
     color: var(--white);
-    font-family: "Inter", -apple-system, sans-serif;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; }
 
-  /* chalky texture over the whole page */
+  /* Fine grain keeps the original hand-made / print feel without fighting the new logo. */
   body::before {
     content: "";
     position: fixed;
     inset: 0;
     pointer-events: none;
-    z-index: 5;
-    opacity: 0.35;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' seed='4'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.9 0 0 0 0 0.85 0 0 0 0 0.78 0 0 0 0.06 0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
+    z-index: 50;
+    opacity: 0.18;
+    mix-blend-mode: soft-light;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.92' numOctaves='2' seed='8'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E");
   }
 
   .wrap {
-    max-width: 1140px;
+    width: min(calc(100% - 64px), var(--wrap));
     margin: 0 auto;
-    padding: 0 32px;
   }
 
   /* ---------- header ---------- */
   header {
     position: absolute;
-    top: 0; left: 0; right: 0;
-    z-index: 10;
+    inset: 0 0 auto;
+    z-index: 20;
   }
   .header-inner {
+    min-height: 92px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-top: 34px;
+    gap: 30px;
   }
-  .logo {
-    font-family: "Inter", sans-serif;
-    font-weight: 600;
-    font-size: 1.35rem;
-    letter-spacing: 0.01em;
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 13px;
     color: var(--white);
     text-decoration: none;
+    font-weight: 700;
+    letter-spacing: -0.025em;
   }
-  nav { display: flex; align-items: center; gap: 38px; }
-  nav a {
+  .brand-mark {
+    width: 46px;
+    height: 46px;
+    object-fit: contain;
+    transition: transform .25s ease;
+  }
+  header .brand { gap: 16px; }
+  header .brand-mark { width: 68px; height: 68px; }
+  .brand:hover .brand-mark { transform: rotate(-3deg) scale(1.04); }
+  .brand-name { font-size: 1.08rem; }
+  .brand-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--teal);
     font-family: "Oswald", sans-serif;
-    font-weight: 500;
-    font-size: 0.82rem;
-    letter-spacing: 0.16em;
+    font-weight: 600;
+    font-size: .84rem;
+    letter-spacing: .18em;
+  }
+  .brand-kicker::before {
+    content: "";
+    width: 28px;
+    height: 1px;
+    background: currentColor;
+  }
+
+  nav { display: flex; align-items: center; gap: 32px; }
+  nav a {
+    position: relative;
+    font-family: "Oswald", sans-serif;
+    font-weight: 600;
+    font-size: .78rem;
+    letter-spacing: .16em;
     color: var(--white);
     text-decoration: none;
-    transition: color 0.2s;
+    transition: color .2s ease;
   }
+  nav a:not(.nav-btn)::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 100%;
+    bottom: -7px;
+    height: 2px;
+    background: var(--orange);
+    transition: right .2s ease;
+  }
+  nav a:not(.nav-btn):hover::after { right: 0; }
   nav a:hover { color: var(--orange); }
-  nav a.nav-btn {
-    border: 1px solid var(--orange);
-    padding: 10px 22px;
-    color: var(--white);
+  nav .nav-btn {
+    border: 1px solid rgba(245, 126, 46, .7);
+    padding: 11px 20px;
+    transition: background .2s ease, color .2s ease, border-color .2s ease;
   }
-  nav a.nav-btn:hover { background: var(--orange); color: #16120f; }
+  nav .nav-btn:hover { background: var(--orange); border-color: var(--orange); color: #11100f; }
 
   /* ---------- hero ---------- */
   .hero {
+    min-height: min(940px, 92vh);
     position: relative;
-    min-height: 92vh;
     display: flex;
     align-items: center;
     overflow: hidden;
+    isolation: isolate;
+    border-bottom: 1px solid var(--line);
   }
-  .hero .wrap { width: 100%; }
-  .hero-art {
+  .hero::before {
+    content: "";
     position: absolute;
-    inset: 0;
+    width: 780px;
+    height: 780px;
+    right: -330px;
+    top: -330px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(94,184,167,.14), transparent 66%);
+    z-index: -1;
   }
+  /* bg.png has black baked into its edges; "screen" turns that black into the page colour. */
+  .hero-art { position: absolute; inset: 0; z-index: -2; background: var(--bg); }
   .hero-art img {
     position: absolute;
-    top: 55%;
-    /* anchor the art to the content column's right edge (like the title on the
-       left): inset on wide screens, flush with the screen edge once the
-       viewport is narrower than the 1140px wrap */
-    right: max(0px, calc((100vw - 1140px) / 2));
-    height: 92%;
-    width: auto;
-    /* bg.png's right ~14.5% is near-transparent haze; shift by that much so
-       the visible ink lands on the anchor and only the haze bleeds past it */
-    transform: translate(14.5%, -55%);
+    top: 54%;
+    right: max(-20px, calc((100vw - var(--wrap)) / 2 - 20px));
+    width: min(132vw, 1800px);
+    height: auto;
+    transform: translate(8%, -50%);
+    opacity: .92;
+    mix-blend-mode: screen;
   }
   .hero-art::after {
     content: "";
     position: absolute;
     inset: 0;
     background:
-      linear-gradient(90deg, rgba(22,18,15,0.85) 0%, rgba(22,18,15,0.35) 40%, rgba(22,18,15,0) 65%),
-      linear-gradient(0deg, var(--bg) 0%, rgba(22,18,15,0) 18%);
+      linear-gradient(90deg, var(--bg) 0%, rgba(15,28,48,.94) 23%, rgba(15,28,48,.50) 51%, rgba(15,28,48,.04) 76%),
+      linear-gradient(0deg, var(--bg) 0%, rgba(15,28,48,0) 22%),
+      linear-gradient(180deg, rgba(15,28,48,.22) 0%, rgba(15,28,48,0) 30%);
   }
+  .hero .wrap { width: min(calc(100% - 64px), var(--wrap)); }
   .hero-content {
     position: relative;
     z-index: 2;
-    padding-top: 110px;
-    max-width: 560px;
+    max-width: 570px;
+    padding-top: 96px;
   }
-  .hero h1 {
-    margin-bottom: 26px;
-    line-height: 0;
-  }
+  .hero h1 { line-height: 0; margin-bottom: 27px; }
   .hero-title {
-    width: clamp(160px, 32vw, 220px);
+    width: clamp(180px, 21vw, 245px);
     height: auto;
-    filter: drop-shadow(3px 5px 6px rgba(0,0,0,0.55));
-    /* title.png has ~3.5% transparent padding on its left; pull it back so the ink lines up */
+    filter: drop-shadow(4px 7px 10px rgba(0,0,0,.48));
     transform: translateX(-3.5%);
   }
   .hero .tagline {
     font-family: "Oswald", sans-serif;
     font-weight: 600;
-    font-size: 1.25rem;
-    letter-spacing: 0.04em;
+    font-size: clamp(1.12rem, 1.7vw, 1.35rem);
+    letter-spacing: .045em;
+    line-height: 1.35;
     white-space: pre-line;
-    margin-bottom: 18px;
+    margin-bottom: 17px;
   }
   .hero .desc {
+    max-width: 390px;
     color: var(--gray);
-    font-size: 0.95rem;
-    line-height: 1.65;
-    max-width: 330px;
-    margin-bottom: 34px;
+    font-size: .97rem;
+    line-height: 1.72;
   }
-  .btn-outline {
-    display: inline-block;
-    font-family: "Oswald", sans-serif;
-    font-weight: 500;
-    font-size: 0.82rem;
-    letter-spacing: 0.18em;
-    color: var(--orange);
-    text-decoration: none;
-    border: 1px solid var(--orange);
-    padding: 15px 32px;
-    transition: background 0.2s, color 0.2s;
-  }
-  .btn-outline:hover { background: var(--orange); color: #16120f; }
 
-  /* ---------- expertise cards ---------- */
-  .expertise { padding: 90px 0 40px; }
-  .cards {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 22px;
+  /* ---------- business areas + projects ---------- */
+  .expertise {
+    position: relative;
+    padding: 104px 0 112px;
+    overflow: hidden;
   }
-  .card {
-    background: var(--bg-card);
-    border: 1px solid var(--orange-soft);
-    padding: 38px 22px 32px;
-    text-align: center;
+  .expertise::before {
+    content: "";
+    position: absolute;
+    width: 520px;
+    height: 520px;
+    left: -260px;
+    top: 70px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(19,107,157,.11), transparent 68%);
+    pointer-events: none;
   }
-  .card svg {
-    width: 38px;
-    height: 38px;
-    stroke: var(--orange);
-    fill: none;
-    stroke-width: 1.6;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    margin-bottom: 22px;
+  .section-head {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 38px;
   }
-  .card h3 {
+  .eyebrow {
+    color: var(--orange);
     font-family: "Oswald", sans-serif;
     font-weight: 600;
-    font-size: 1.02rem;
-    letter-spacing: 0.1em;
-    margin-bottom: 12px;
+    font-size: .72rem;
+    letter-spacing: .18em;
+    margin-bottom: 10px;
   }
-  .card p {
+  .section-head h2 {
+    font-family: "Oswald", sans-serif;
+    font-size: clamp(1.9rem, 4vw, 3rem);
+    line-height: 1;
+    letter-spacing: .035em;
+  }
+  .section-note {
+    max-width: 380px;
     color: var(--gray-dim);
-    font-size: 0.84rem;
+    font-size: .85rem;
     line-height: 1.6;
+    text-align: right;
+  }
+  .area-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+    align-items: start;
+  }
+  .area-column { min-width: 0; }
+  .area-card {
+    --area-accent: var(--orange);
+    position: relative;
+    min-height: 220px;
+    padding: 31px 25px 28px;
+    background: linear-gradient(145deg, rgba(255,255,255,.035), transparent 50%), var(--surface);
+    border: 1px solid var(--line);
+    overflow: hidden;
+    transition: transform .25s ease, border-color .25s ease, background .25s ease;
+  }
+  .area-card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--area-accent);
+  }
+  .area-card::after {
+    content: "";
+    position: absolute;
+    width: 145px;
+    height: 145px;
+    right: -72px;
+    bottom: -88px;
+    border-radius: 50%;
+    background: var(--area-accent);
+    opacity: .07;
+  }
+  .area-column:hover .area-card {
+    transform: translateY(-3px);
+    border-color: color-mix(in srgb, var(--area-accent) 50%, transparent);
+    background: linear-gradient(145deg, rgba(255,255,255,.05), transparent 50%), var(--surface-2);
+  }
+  .area-card svg {
+    width: 36px;
+    height: 36px;
+    margin-bottom: 30px;
+    stroke: var(--area-accent);
+    fill: none;
+    stroke-width: 1.55;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .area-card h3 {
+    font-family: "Oswald", sans-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: .11em;
+    margin-bottom: 10px;
+  }
+  .area-card p {
+    color: var(--gray-dim);
+    font-size: .82rem;
+    line-height: 1.6;
+  }
+  .project-list {
+    display: grid;
+    gap: 12px;
+    margin-top: 12px;
+  }
+  .project-card {
+    --project-bg: #1c2e4a;
+    --project-text: #f5f2ed;
+    --project-muted: rgba(245,242,237,.72);
+    display: grid;
+    grid-template-columns: 1fr;
+    min-height: 96px;
+    overflow: hidden;
+    background: var(--project-bg);
+    color: var(--project-text);
+    border: 1px solid rgba(255,255,255,.14);
+    box-shadow: 0 12px 28px rgba(0,0,0,.10);
+    transform: translateZ(0);
+    transition: transform .22s ease, box-shadow .22s ease;
+  }
+  /* Compact row: square thumbnail on the left, title + text on the right. */
+  .project-card.has-image { grid-template-columns: 92px minmax(0, 1fr); }
+  .project-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 36px rgba(0,0,0,.20);
+  }
+  .project-image-wrap {
+    position: relative;
+    overflow: hidden;
+    background: rgba(0,0,0,.13);
+  }
+  .project-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .35s ease;
+  }
+  .project-card:hover .project-image { transform: scale(1.05); }
+  .project-body {
+    align-self: center;
+    padding: 11px 14px 12px;
+  }
+  .project-body h4 {
+    font-family: "Oswald", sans-serif;
+    font-size: .92rem;
+    line-height: 1.2;
+    letter-spacing: .045em;
+    margin-bottom: 4px;
+  }
+  .project-body p {
+    color: var(--project-muted);
+    font-size: .74rem;
+    line-height: 1.45;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
   }
 
   /* ---------- about / contact ---------- */
-  .about-contact { padding: 80px 0 90px; }
+  .about-contact {
+    padding: 96px 0 100px;
+    border-top: 1px solid var(--line);
+    background:
+      radial-gradient(circle at 86% 35%, rgba(94,184,167,.08), transparent 25%),
+      var(--bg-deep);
+  }
   .ac-grid {
     display: grid;
-    grid-template-columns: 1.1fr 1fr;
-    gap: 70px;
-    align-items: start;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 56px;
+    align-items: center;
+  }
+  .about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 360px;
   }
   .about h2 {
     font-family: "Oswald", sans-serif;
     font-weight: 700;
-    font-size: clamp(2rem, 4vw, 2.9rem);
-    letter-spacing: 0.06em;
-    line-height: 1.18;
+    font-size: clamp(2.35rem, 5vw, 4.35rem);
+    letter-spacing: .045em;
+    line-height: 1.04;
     white-space: pre-line;
-    margin-bottom: 26px;
   }
-  .about p {
-    color: var(--gray);
-    font-size: 0.98rem;
-    line-height: 1.7;
-    max-width: 380px;
+  /* Pale "business card" – light paper that suits the logo's orange/teal/navy. */
+  /* A small stack of cards: two blanks fanned out behind the real one, which tilts in 3D on hover. */
+  .card-stack {
+    --paper-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23p)' opacity='.09'/%3E%3C/svg%3E");
+    position: relative;
+    isolation: isolate;
+    perspective: 1100px;
   }
-  .contact h3 {
-    font-family: "Oswald", sans-serif;
-    font-weight: 600;
-    font-size: 1.05rem;
-    letter-spacing: 0.14em;
-    color: var(--orange);
-    margin: 8px 0 30px;
+  .card-stack::before,
+  .card-stack::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: 5px;
+    transition: transform .45s cubic-bezier(.2, .8, .2, 1);
   }
-  .contact-row {
+  .card-stack::before {
+    background: var(--paper-grain), #d9ccb4;
+    transform: translate(10px, 12px) rotate(4.5deg);
+    box-shadow: 0 2px 0 #b9aa8e, 0 14px 30px rgba(0, 0, 0, .35);
+  }
+  .card-stack::after {
+    background: var(--paper-grain), #e5dac6;
+    transform: translate(-6px, 6px) rotate(-3deg);
+    box-shadow: 0 2px 0 #c4b59a, 0 10px 24px rgba(0, 0, 0, .28);
+  }
+  .card-stack:hover::before { transform: translate(18px, 16px) rotate(7deg); }
+  .card-stack:hover::after { transform: translate(-14px, 8px) rotate(-5.5deg); }
+
+  /* Pale "business card" – light paper that suits the logo's orange/teal/navy. */
+  .contact-panel {
+    --card-bg: #efe6d6;
+    --card-ink: #1d1b18;
+    --card-heading: #b8561a;
+    --card-line: rgba(29, 27, 24, .18);
+    position: relative;
+    padding: 34px 40px;
+    border-radius: 5px;
+    /* grain + soft light falling from the top-left */
+    background:
+      var(--paper-grain),
+      linear-gradient(155deg, rgba(255, 255, 255, .5) 0%, rgba(255, 255, 255, 0) 45%, rgba(120, 95, 60, .07) 100%),
+      var(--card-bg);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, .8),     /* bright top edge */
+      0 1px 0 #d8cab1, 0 2px 0 #cdbd9f, 0 3px 0 #bfae8f, /* cardstock thickness */
+      0 5px 8px rgba(0, 0, 0, .25),
+      0 22px 44px rgba(0, 0, 0, .45);
+    overflow: hidden;
     display: flex;
     align-items: center;
-    gap: 18px;
+    gap: 32px;
+    transform: rotate(-1deg);
+    transform-style: preserve-3d;
+    transition: transform .45s cubic-bezier(.2, .8, .2, 1), box-shadow .45s ease;
+  }
+  .card-stack:hover .contact-panel {
+    transform: translateY(-6px) rotateX(6deg) rotateY(-8deg) rotate(0deg);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, .8),
+      0 1px 0 #d8cab1, 0 2px 0 #cdbd9f, 0 3px 0 #bfae8f,
+      0 10px 16px rgba(0, 0, 0, .22),
+      0 36px 60px rgba(0, 0, 0, .5);
+  }
+  .contact-brand {
+    width: 150px;
+    height: 150px;
+    flex-shrink: 0;
+    object-fit: contain;
+    user-select: none;
+  }
+  .contact-info {
+    min-width: 0;
+    padding-left: 32px;
+    border-left: 1px solid var(--card-line);
+    white-space: nowrap;
+  }
+  .contact h3 {
+    position: relative;
+    font-family: "Oswald", sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: .15em;
+    color: var(--card-heading);
     margin-bottom: 24px;
-    color: var(--white);
-    font-size: 0.95rem;
+  }
+  .contact-row {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 18px;
+    color: var(--card-ink);
+    font-size: .92rem;
+    font-weight: 500;
     text-decoration: none;
   }
-  a.contact-row:hover { color: var(--orange); }
+  .contact-row:last-child { margin-bottom: 0; }
+  a.contact-row:hover { color: var(--navy); }
   .contact-row svg {
-    width: 22px;
-    height: 22px;
-    stroke: var(--orange);
+    width: 21px;
+    height: 21px;
+    stroke: var(--card-heading);
     fill: none;
     stroke-width: 1.6;
     stroke-linecap: round;
@@ -304,25 +567,19 @@ const CONTENT = {
   }
 
   /* ---------- footer ---------- */
-  footer { border-top: 1px solid var(--line); }
+  footer { background: var(--bg-deep); border-top: 1px solid var(--line); }
   .footer-inner {
-    display: flex;
+    min-height: 96px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
-    justify-content: space-between;
     gap: 24px;
-    padding: 34px 0;
   }
-  .footer-logo {
-    font-weight: 600;
-    font-size: 1.1rem;
-    color: var(--white);
-    text-decoration: none;
-  }
-  .footer-copy {
-    color: var(--gray-dim);
-    font-size: 0.8rem;
-  }
-  .footer-social { display: flex; gap: 20px; }
+  .footer-brand { justify-self: start; }
+  .footer-brand .brand-mark { width: 35px; height: 35px; }
+  .footer-brand .brand-kicker { font-size: .78rem; }
+  .footer-copy { color: var(--gray-dim); font-size: .76rem; text-align: center; }
+  .footer-social { justify-self: end; display: flex; gap: 18px; }
   .footer-social a { display: inline-flex; }
   .footer-social svg {
     width: 19px;
@@ -332,71 +589,136 @@ const CONTENT = {
     stroke-width: 1.6;
     stroke-linecap: round;
     stroke-linejoin: round;
-    transition: stroke 0.2s;
   }
-  .footer-social a:hover svg { stroke: var(--orange); }
 
   /* ---------- responsive ---------- */
-  @media (max-width: 900px) {
-    .cards { grid-template-columns: repeat(2, 1fr); }
-    .ac-grid { grid-template-columns: 1fr; gap: 50px; }
+  @media (max-width: 1020px) {
+    .area-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .ac-grid { grid-template-columns: 1fr; gap: 38px; }
+    .about { min-height: auto; }
+    .card-stack { justify-self: start; margin-top: 10px; }
+    .hero-art img { width: 156vw; right: -8vw; }
   }
-  @media (max-width: 600px) {
-    nav { gap: 20px; }
+  @media (max-width: 760px) {
+    .wrap, .hero .wrap { width: min(calc(100% - 40px), var(--wrap)); }
+    .header-inner { min-height: 78px; }
+    header .brand-mark { width: 54px; height: 54px; }
+    header .brand { gap: 12px; }
+    nav { gap: 16px; }
     nav a:not(.nav-btn) { display: none; }
-    .cards { grid-template-columns: 1fr; }
-    .footer-inner { flex-direction: column; }
+    nav .nav-btn { padding: 9px 15px; }
+
+    .hero { min-height: 800px; align-items: flex-end; padding-bottom: 95px; }
+    .hero-content { padding-top: 0; max-width: 520px; }
+    .hero-art img {
+      top: 20%;
+      right: -32%;
+      width: 236vw;
+      transform: none;
+      opacity: .55;
+    }
+    .hero-art::after {
+      background:
+        linear-gradient(0deg, var(--bg) 8%, rgba(15,28,48,.90) 35%, rgba(15,28,48,.18) 72%),
+        linear-gradient(90deg, rgba(15,28,48,.75) 0%, rgba(15,28,48,.05) 100%);
+    }
+
+    .expertise { padding: 80px 0 88px; }
+    .section-head { display: block; margin-bottom: 30px; }
+    .section-note { text-align: left; margin-top: 14px; }
+    .area-grid { grid-template-columns: 1fr; gap: 24px; }
+    .area-card { min-height: 190px; }
+
+    .about-contact { padding: 72px 0 78px; }
+    .ac-grid { gap: 36px; }
+    .contact-panel { padding: 30px 28px; gap: 24px; }
+    .contact-brand { width: 110px; height: 110px; }
+    .contact-info { padding-left: 24px; }
+
+    .footer-inner { grid-template-columns: 1fr; justify-items: center; padding: 28px 0; }
+    .footer-brand, .footer-social { justify-self: center; }
+    .footer-copy { order: 3; }
+  }
+  @media (max-width: 420px) {
+    .brand-kicker::before { display: none; }
+  }
+  @media (max-width: 560px) {
+    /* Too narrow for side-by-side without wrapping: stack logo above the details. */
+    .contact-panel { flex-direction: column; align-items: flex-start; padding: 28px 24px; gap: 20px; }
+    .contact-brand { width: 92px; height: 92px; }
+    .contact-info { padding-left: 0; padding-top: 20px; border-left: 0; border-top: 1px solid var(--card-line); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { transition-duration: .01ms !important; }
   }
 </style>
 </head>
 
 <body>
-
 <header>
   <div class="wrap header-inner">
-    <a class="logo" href="#work" id="logo"></a>
-    <nav id="nav"></nav>
+    <a class="brand" href="#work" aria-label="Stenumedia home">
+      <img class="brand-mark" src="assets/stenumedia-logo.svg" alt="">
+      <span class="brand-kicker" id="logo"></span>
+    </a>
+    <nav id="nav" aria-label="Main navigation"></nav>
   </div>
 </header>
 
-<section class="hero" id="work">
-  <div class="hero-art" aria-hidden="true"><img src="assets/bg.png" alt=""></div>
-  <div class="wrap">
-    <div class="hero-content">
-      <h1><img class="hero-title" id="hero-title" src="" alt=""></h1>
-      <p class="tagline" id="hero-tagline"></p>
-      <p class="desc" id="hero-desc"></p>
-    </div>
-  </div>
-</section>
+<main>
+  <section class="hero" id="work">
+    <div class="hero-art" aria-hidden="true"><img src="assets/bg.png" alt=""></div>
+    <div class="wrap">
+      <div class="hero-content">
+        <h1><img class="hero-title" id="hero-title" src="" alt=""></h1>
+        <p class="tagline" id="hero-tagline"></p>
+        <p class="desc" id="hero-desc"></p>
+      </div>
+    </div>  </section>
 
-<section class="expertise" id="expertise">
-  <div class="wrap">
-    <div class="cards" id="cards"></div>
-  </div>
-</section>
+  <section class="expertise" id="expertise">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">BUSINESS AREAS</div>
+          <h2>WHAT WE DO</h2>
+        </div>
+      </div>
+      <div class="area-grid" id="areas"></div>
+    </div>
+  </section>
 
-<section class="about-contact" id="about">
-  <div class="wrap ac-grid">
-    <div class="about">
-      <h2 id="about-heading"></h2>
-      <p id="about-text"></p>
+  <section class="about-contact" id="about">
+    <div class="wrap ac-grid">
+      <div class="about">
+        <div class="eyebrow">ABOUT</div>
+        <h2 id="about-heading"></h2>      </div>
+      <div class="card-stack">
+        <div class="contact-panel contact" id="contact">
+          <img class="contact-brand" src="assets/stenumedia-logo.svg" alt="" aria-hidden="true">
+          <div class="contact-info">
+            <h3 id="contact-heading"></h3>
+            <div id="contact-rows"></div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="contact" id="contact">
-      <h3 id="contact-heading"></h3>
-      <div id="contact-rows"></div>
-    </div>
-  </div>
-</section>
+  </section>
+</main>
 
 <footer>
   <div class="wrap footer-inner">
-    <a class="footer-logo" href="#work" id="footer-logo"></a>
+    <a class="brand footer-brand" href="#work" aria-label="Stenumedia home">
+      <img class="brand-mark" src="assets/stenumedia-logo.svg" alt="">
+      <span class="brand-kicker">STENUMEDIA</span>
+    </a>
     <span class="footer-copy" id="footer-copy"></span>
     <div class="footer-social" id="footer-social"></div>
   </div>
 </footer>
 
+<script src="projects.js"></script>
 <script>
 /* ---------- icon library (inline SVG paths, 24x24 viewBox) ---------- */
 const ICONS = {
@@ -405,54 +727,94 @@ const ICONS = {
   gear: '<circle cx="12" cy="12" r="3.2"/><path d="M12 5.5V3.5M12 20.5v-2M18.5 12h2M3.5 12h2M16.6 7.4l1.4-1.4M6 18l1.4-1.4M16.6 16.6 18 18M6 6l1.4 1.4"/><circle cx="12" cy="12" r="6.6"/>',
   branches: '<path d="M12 21V11M12 11 7 6M12 11l5-5M7 6 4.5 8M7 6 6 3M17 6l2.5 2M17 6l1-3M12 15l-3.5-2M12 17l3.5-2"/>',
   mail: '<rect x="3.5" y="5.5" width="17" height="13" rx="1"/><path d="m4 7 8 6 8-6"/>',
-  phone: '<path d="M7.5 3.5h3l1.5 4.5-2 1.5a12 12 0 0 0 4.5 4.5l1.5-2 4.5 1.5v3a2 2 0 0 1-2 2A16.5 16.5 0 0 1 5.5 5.5a2 2 0 0 1 2-2Z"/>',
   pin: '<path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11Z"/><circle cx="12" cy="10" r="2.6"/>',
   twitter: '<path d="M21 6.5c-.7.3-1.4.5-2.2.6A3.7 3.7 0 0 0 20.4 5c-.7.4-1.5.7-2.4.9a3.8 3.8 0 0 0-6.5 3.4A10.8 10.8 0 0 1 3.7 5.4a3.8 3.8 0 0 0 1.2 5 3.7 3.7 0 0 1-1.7-.4 3.8 3.8 0 0 0 3 3.7c-.5.2-1.1.2-1.7.1a3.8 3.8 0 0 0 3.5 2.6A7.7 7.7 0 0 1 2.5 18a10.8 10.8 0 0 0 16.6-9.6c.7-.6 1.4-1.2 1.9-1.9Z"/>',
   linkedin: '<rect x="3.5" y="3.5" width="17" height="17" rx="2"/><path d="M8 10.5V17M8 7.5v.1M12 17v-3.8a2 2 0 0 1 4 0V17M12 10.5V17"/>',
   instagram: '<rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17" cy="7" r="0.5"/>'
 };
-const icon = (name, cls) =>
-  `<svg viewBox="0 0 24 24" aria-hidden="true">${ICONS[name] || ""}</svg>`;
+const icon = (name) => `<svg viewBox="0 0 24 24" aria-hidden="true">${ICONS[name] || ""}</svg>`;
 
-/* ---------- render CONTENT into the page ---------- */
+const escapeHTML = (value = "") => String(value)
+  .replaceAll("&", "&amp;")
+  .replaceAll("<", "&lt;")
+  .replaceAll(">", "&gt;")
+  .replaceAll('"', "&quot;")
+  .replaceAll("'", "&#039;");
+
+function readableProjectColours(bgColor) {
+  const match = /^#([\da-f]{6}|[\da-f]{3})$/i.exec(String(bgColor).trim());
+  if (!match) return { text: "#f5f2ed", muted: "rgba(245,242,237,.76)" };
+  let hex = match[1];
+  if (hex.length === 3) hex = hex.split("").map(c => c + c).join("");
+  const [r, g, b] = [0, 2, 4].map(i => parseInt(hex.slice(i, i + 2), 16));
+  const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+  return luminance > .63
+    ? { text: "#12110f", muted: "rgba(18,17,15,.70)" }
+    : { text: "#f8f5f0", muted: "rgba(248,245,240,.76)" };
+}
+
+function renderProjectsFor(category) {
+  const projects = (typeof PROJECTS !== "undefined" ? PROJECTS : [])
+    .filter(project => String(project.category || "").trim().toLowerCase() === category.toLowerCase());
+
+  return projects.map(project => {
+    const bg = project.bgColor || "#1c2e4a";
+    const colours = readableProjectColours(bg);
+    const image = project.image
+      ? `<div class="project-image-wrap"><img class="project-image" src="${escapeHTML(project.image)}" alt="" loading="lazy"></div>`
+      : "";
+
+    return `
+      <article class="project-card${image ? " has-image" : ""}" style="--project-bg:${escapeHTML(bg)};--project-text:${colours.text};--project-muted:${colours.muted}">
+        ${image}
+        <div class="project-body">
+          <h4>${escapeHTML(project.title)}</h4>
+          <p>${escapeHTML(project.text)}</p>
+        </div>
+      </article>`;
+  }).join("");
+}
+
+/* ---------- render content ---------- */
 document.addEventListener("DOMContentLoaded", () => {
-  const $ = (id) => document.getElementById(id);
+  const $ = id => document.getElementById(id);
   document.title = CONTENT.siteTitle;
 
   $("logo").textContent = CONTENT.logo;
   $("nav").innerHTML =
-    CONTENT.nav.map(n => `<a href="${n.href}">${n.label}</a>`).join("") +
-    `<a class="nav-btn" href="${CONTENT.navButton.href}">${CONTENT.navButton.label}</a>`;
+    CONTENT.nav.map(n => `<a href="${escapeHTML(n.href)}">${escapeHTML(n.label)}</a>`).join("") +
+    `<a class="nav-btn" href="${escapeHTML(CONTENT.navButton.href)}">${escapeHTML(CONTENT.navButton.label)}</a>`;
 
   $("hero-title").src = CONTENT.hero.titleImage;
   $("hero-title").alt = CONTENT.hero.titleAlt;
   $("hero-tagline").textContent = CONTENT.hero.tagline;
   $("hero-desc").textContent = CONTENT.hero.description;
 
-  $("cards").innerHTML = CONTENT.cards.map(c => `
-    <div class="card">
-      ${icon(c.icon)}
-      <h3>${c.title}</h3>
-      <p>${c.text}</p>
-    </div>`).join("");
+  $("areas").innerHTML = CONTENT.cards.map(card => `
+    <div class="area-column" data-area="${escapeHTML(card.key)}">
+      <article class="area-card" style="--area-accent:${escapeHTML(card.accent)}">
+        ${icon(card.icon)}
+        <h3>${escapeHTML(card.title)}</h3>
+        <p>${escapeHTML(card.text)}</p>
+      </article>
+      <div class="project-list">${renderProjectsFor(card.key)}</div>
+    </div>
+  `).join("");
 
   $("about-heading").textContent = CONTENT.about.heading;
-  $("about-text").textContent = CONTENT.about.text;
-
   $("contact-heading").textContent = CONTENT.contact.heading;
-  $("contact-rows").innerHTML = CONTENT.contact.rows.map(r => {
-    const inner = `${icon(r.icon)}<span>${r.text}</span>`;
-    return r.href
-      ? `<a class="contact-row" href="${r.href}">${inner}</a>`
+  $("contact-rows").innerHTML = CONTENT.contact.rows.map(row => {
+    const inner = `${icon(row.icon)}<span>${escapeHTML(row.text)}</span>`;
+    return row.href
+      ? `<a class="contact-row" href="${escapeHTML(row.href)}">${inner}</a>`
       : `<div class="contact-row">${inner}</div>`;
   }).join("");
 
-  $("footer-logo").textContent = CONTENT.footer.logo;
   $("footer-copy").textContent = CONTENT.footer.copyright;
-  $("footer-social").innerHTML = CONTENT.footer.social.map(s =>
-    `<a href="${s.href}" aria-label="${s.label}">${icon(s.icon)}</a>`).join("");
+  $("footer-social").innerHTML = CONTENT.footer.social.map(social =>
+    `<a href="${escapeHTML(social.href)}" aria-label="${escapeHTML(social.label)}">${icon(social.icon)}</a>`
+  ).join("");
 });
 </script>
-
 </body>
 </html>
