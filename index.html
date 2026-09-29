@@ -610,17 +610,22 @@ const CONTENT = {
 
     .hero { min-height: 800px; align-items: flex-end; padding-bottom: 95px; }
     .hero-content { padding-top: 0; max-width: 520px; }
+    /* Size by height (the global img max-width would otherwise squash it to the screen width)
+       and centre the illustration; it sits large behind the title art. */
     .hero-art img {
-      top: 20%;
-      right: -32%;
-      width: 236vw;
-      transform: none;
-      opacity: .55;
+      top: 64px;
+      left: 50%;
+      right: auto;
+      width: auto;
+      height: 640px;
+      max-width: none;
+      transform: translateX(-61%);
+      opacity: .7;
     }
     .hero-art::after {
       background:
-        linear-gradient(0deg, var(--bg) 8%, rgba(15,28,48,.90) 35%, rgba(15,28,48,.18) 72%),
-        linear-gradient(90deg, rgba(15,28,48,.75) 0%, rgba(15,28,48,.05) 100%);
+        linear-gradient(0deg, var(--bg) 6%, rgba(15,28,48,.86) 26%, rgba(15,28,48,.30) 52%, rgba(15,28,48,.10) 80%),
+        linear-gradient(180deg, rgba(15,28,48,.55) 0%, rgba(15,28,48,0) 16%);
     }
 
     .expertise { padding: 80px 0 88px; }
@@ -631,7 +636,9 @@ const CONTENT = {
 
     .about-contact { padding: 72px 0 78px; }
     .ac-grid { gap: 36px; }
-    .contact-panel { padding: 30px 28px; gap: 24px; }
+    /* Full width like the area cards, contents centred on one row. */
+    .card-stack { justify-self: stretch; }
+    .contact-panel { padding: 30px 28px; gap: 24px; justify-content: center; }
     .contact-brand { width: 110px; height: 110px; }
     .contact-info { padding-left: 24px; }
 
@@ -643,10 +650,13 @@ const CONTENT = {
     .brand-kicker::before { display: none; }
   }
   @media (max-width: 560px) {
-    /* Too narrow for side-by-side without wrapping: stack logo above the details. */
-    .contact-panel { flex-direction: column; align-items: flex-start; padding: 28px 24px; gap: 20px; }
-    .contact-brand { width: 92px; height: 92px; }
-    .contact-info { padding-left: 0; padding-top: 20px; border-left: 0; border-top: 1px solid var(--card-line); }
+    /* Keep logo and details side by side; scale everything with the viewport so the email never wraps. */
+    .contact-panel { padding: 24px 5vw; gap: 4vw; }
+    .contact-brand { width: clamp(56px, 18vw, 92px); height: clamp(56px, 18vw, 92px); }
+    .contact-info { padding-left: 4vw; }
+    .contact h3 { font-size: clamp(.8rem, 3.8vw, 1rem); margin-bottom: 16px; }
+    .contact-row { font-size: clamp(.66rem, 3.3vw, .9rem); gap: 10px; margin-bottom: 12px; }
+    .contact-row svg { width: 18px; height: 18px; }
   }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
