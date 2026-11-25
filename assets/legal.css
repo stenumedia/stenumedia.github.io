@@ -1,0 +1,30 @@
+:root{--bg:#0f1c30;--bg-deep:#0a1424;--surface:#15253d;--orange:#f57e2e;--teal:#5eb8a7;--white:#f5f2ed;--gray:#b4c0cf;--gray-dim:#8595ab;--line:rgba(245,242,237,.13)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{min-width:320px;background:var(--bg);color:var(--white);font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;line-height:1.7}
+a{color:var(--teal)}
+a:hover{color:var(--orange)}
+.wrap{width:min(calc(100% - 40px),780px);margin:0 auto}
+.top{border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:80px;width:min(calc(100% - 40px),1180px)}
+.brand{display:inline-flex;align-items:center;gap:14px;color:var(--white);text-decoration:none;font-family:"Oswald",sans-serif;font-weight:600;letter-spacing:.16em;font-size:.9rem}
+.brand img{width:48px;height:48px}
+.top nav{display:flex;gap:26px;flex-wrap:wrap}
+.top nav a{font-family:"Oswald",sans-serif;font-weight:600;font-size:.78rem;letter-spacing:.16em;color:var(--white);text-decoration:none}
+.top nav a:hover,.top nav a[aria-current]{color:var(--orange)}
+main{padding:64px 0 96px}
+.eyebrow{color:var(--orange);font-family:"Oswald",sans-serif;font-weight:600;font-size:.72rem;letter-spacing:.18em;margin-bottom:10px}
+h1{font-family:"Oswald",sans-serif;font-size:clamp(2rem,6vw,3rem);line-height:1.05;letter-spacing:.035em;margin-bottom:12px}
+.updated{color:var(--gray-dim);font-size:.85rem;margin-bottom:36px}
+.lead{color:var(--gray);font-size:1.05rem;margin-bottom:12px}
+h2{font-family:"Oswald",sans-serif;font-size:1.35rem;letter-spacing:.06em;margin:44px 0 10px}
+h3{font-family:"Oswald",sans-serif;font-size:1.02rem;letter-spacing:.08em;color:var(--teal);margin:26px 0 6px}
+p,li{color:var(--gray);font-size:.97rem}
+p{margin-bottom:14px}
+ul{margin:0 0 14px 22px}
+li{margin-bottom:6px}
+strong{color:var(--white);font-weight:600}
+.game{background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--orange);padding:6px 24px 14px;margin:18px 0}
+.game h3{margin-top:18px;color:var(--white)}
+footer{background:var(--bg-deep);border-top:1px solid var(--line);padding:26px 0;text-align:center;color:var(--gray-dim);font-size:.78rem}
+footer a{color:var(--gray-dim);margin:0 10px}
+footer a:hover{color:var(--orange)}
